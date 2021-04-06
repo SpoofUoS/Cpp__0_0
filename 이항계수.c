@@ -9,5 +9,5 @@ int binomical_coefficient(int n, int k)
 int main()
 {
     int n = 5; int k = 2;
-    printf("%d",binomical_coefficient(5,2));
+    printf("%d",binomical_coefficient(n,k));
 }
