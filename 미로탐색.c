@@ -1,11 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
-// 스택 코드 시작
+#define MAX_STACK_SIZE 6
 
-#define MAX_STACK_SIZE 100
+typedef struct {
+    short r;
+    short c;
+} element;
 
-typedef int element;
+
 typedef struct {
     element data[MAX_STACK_SIZE];
     int top;
@@ -53,16 +57,19 @@ element peek(StackType *s)  // 피크 함수
     else return s->data[s->top];
 }
 
-// 스택 코드의 끝
+element here = { 1, 0 }, entry = { 1, 0 };
 
-int main()
+char maze[MAX_STACK_SIZE][MAX_STACK_SIZE] = {
+    {'1','1','1','1','1','1'},
+    {'e','0','1','0','0','1'},
+    {'1','0','0','0','1','1'},
+    {'1','0','1','0','1','1'},
+    {'1','0','1','0','0','x'},
+    {'1','1','1','1','1','1'},
+};
+
+void push_loc(StackType *s, int r, int c)
 {
-    StackType s;
-    init_stack(&s);
-    push(&s, 1);
-    push(&s, 2);
-    push(&s, 3);
-    printf("%d\n", pop(&s));
-    printf("%d\n", pop(&s));
-    printf("%d\n", pop(&s));
+    if (r<0 || c<0) return;
+
 }

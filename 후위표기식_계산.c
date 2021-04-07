@@ -1,10 +1,10 @@
-#include<stdio.h>
+#include<stdio.h>  
 #include<stdlib.h>
 #include<string.h>
 
 #define MAX_STACK_SIZE 100
 
-typedef int element;
+typedef char element;
 typedef struct {
     element data[MAX_STACK_SIZE];
     int top;
@@ -41,6 +41,15 @@ element pop(StackType *s) // 삭제 함수
         exit(1);
     }
     else return s->data[(s->top)--];
+}
+
+element peek(StackType *s) // 피크 함수
+{
+    if (is_empty(s)) {
+        fprintf(stderr, "스택 공백 에러\n");
+        exit(1);
+    }
+    else return s->data[s->top];
 }
 
 int eval(char exp[])  // 후위 표기 수식 계산 함수
