@@ -40,4 +40,40 @@ void print_stack(LinkedStackType *s)
     printf("NULL \n");
 }
 
-element pop
+element pop(LinkedStackType *s)
+{
+    if (is_empty(s)) {
+        fprintf(stderr, "스택이 비어있음 \n");
+        exit(1);
+    }
+    else {
+        StackNode *temp = s->top;
+        element data = temp->data;
+        s->top = s->top->link;
+        free(temp);
+        return data;
+    }
+}
+
+element peek(LinkedStackType *s)
+{
+    if (is_empty(s)) {
+        fprintf(stderr, "스택이 비어있음 \n");
+        exit(1);
+    }
+    else return s->top->data;
+}
+
+int main()
+{
+    LinkedStackType s;
+
+    init(&s);
+    push(&s, 1); print_stack(&s);
+    push(&s, 2); print_stack(&s);
+    push(&s, 3); print_stack(&s);
+    pop(&s); print_stack(&s);
+    pop(&s); print_stack(&s);
+    pop(&s); print_stack(&s);
+    return 0;
+}
