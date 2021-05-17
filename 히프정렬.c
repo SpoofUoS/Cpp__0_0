@@ -56,3 +56,30 @@ element delete_max_heap(HeapType* h)
     return item;
 }
 
+void heap_sort(element a[], int n)
+{
+    int i;
+    HeapType* h;
+
+    h = create();
+    init(h);
+    for(i=0;i<n;i++)
+    {
+        insert_max_heap(h, a[i]);
+    }
+    for(i=n-1;i>=0;i--)
+    {
+        a[i] = delete_max_heap(h);
+    }
+    free(h);
+}
+
+int main()
+{
+    element list[8] = {23, 56, 11, 9, 56, 99, 27, 34};
+    heap_sort(list, 8);
+    for(int i=0; i<8; i++)
+    {
+        printf("%d ", list[i].key);
+    }
+}
