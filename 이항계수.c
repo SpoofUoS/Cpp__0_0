@@ -8,6 +8,6 @@ int binomical_coefficient(int n, int k)
 
 int main()
 {
-    int n = 5; int k = 2;
+    int n = 39; int k = 6;
     printf("%d",binomical_coefficient(n,k));
 }
